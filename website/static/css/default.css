@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
+
+h1{
+	color: white;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	font-size: 3rem;
+	font-family: 'Festive', cursive;
+}
+canvas{
+	width: 100vw;
+	min-height: 100vh;
+	position: fixed;
+	z-index: -9999;
+	left: 0;
+	right: 0;
+}
+.main{	
+	display: flex;
+	flex-direction: column;
+	z-index: 1000;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: 100vh;
+	width: 100vw;
+}
+.form-style{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60%;
+	height: 50%;
+}
+.container h2{
+    text-align: center;
+    color: white;
+}
+
+.container h3{
+	text-align: left;
+	color: white;
+}
+
+p {
+	font-size: 14px;
+	color: white;
+}
+
+.form-font{
+    color: white;
+    letter-spacing: 1px;
+}
+.mb-3-opacity{
+    opacity: 0.8;
+}
+span{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.hide{
+	visibility: hidden;
+}
+.navbar-modified{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+.navbar-modified a{
+	font-style: italic;
+}
+.container-list{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 100%;
+}
+.dropdown-menu ul, li{
+	background-color: white ;
+}
+
+iframe {
+	display: block;
+	border-style:none;
+}

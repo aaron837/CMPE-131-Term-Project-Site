@@ -1,0 +1,38 @@
+{% block linkcss %} <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='css/login.css') }}"
+  />{%endblock%}
+{%extends "base.html"%}
+{%block title%}Sign Up{%endblock%}
+{%block content %}
+<div class="container form-style">
+<form method ="POST">
+    <div class="container">
+        <h2>Sign Up</h2>
+        <div class="mb-2 mb-3-opacity">
+          <label for="fname" class="form-label form-font" >First Name</label>
+          <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
+        </div>
+        <div class="mb-2 mb-3-opacity">
+          <label for="lname" class="form-label form-font" >Last Name</label>
+          <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
+        </div>
+        <div class="mb-2 mb-3-opacity">
+          <label for="email" class="form-label form-font">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Email address">
+          <div id="email" class="form-text form-font">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-2 mb-3-opacity">
+          <label for="password" class="form-label form-font">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+        <div class="mb-2 mb-3-opacity">
+          <label for="password" class="form-label form-font">Confirm Password</label>
+          <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm Password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+      <span class="form-font">Already have an account? <a href="/signin"> Sign in.</a> </span>
+      </div>
+</form>
+</div>
+
+{%endblock%}

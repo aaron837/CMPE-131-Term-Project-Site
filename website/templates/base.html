@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="/script.js"></script>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static', filename='css/default.css') }}"
+  />
+  {% block linkcss %} {%endblock%}
+  <title>{%block title%}{%endblock%}</title>
+  </head>
+  <body>
+    <canvas class="webgl"></canvas>
+    <div class="container-fluid main">
+      <div class="container-list">
+        {%if user.is_authenticated%}
+        <div class="dropdown" style="background-color: transparent;">
+          <a class="btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+           <span class="form-font" style="letter-spacing: .1rem; text-decoration: underline; font-style:italic">Hello {{user.fname}}</span> 
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: transparent;">
+            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </div>
+        {%endif%}
+      </div>
+      <h1>Welcome To Cubic World</h1>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          {% if category == 'error' %}
+          <div class="alert alert-danger alter-dismissable fade show" style="opacity: 0.6;" role='alert'>
+            {{message}}
+         </div>
+         {% else %}
+          <div class="alert alert-success alter-dismissable fade show" style="opacity: 0.6;" role='alert'>
+           {{message}}
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      {%endwith%}
+       
+      
+      {% block content %}
+<div class="container"> 
+  <!-- Navigation -->
+  <div class="thumbnail">
+      <h1 class="stats">Getting Started</h1>
+      <h2>Download the Rubik's Sramble Scanner app to automatically generate a scramble algorithm to use with the Rubik's Cube Solver</h2>
+	</div>
+  <section class="download" id="download">
+    <h2 class="hidden"><a href="https://www.icloud.com/iclouddrive/0ns7JqJdxeN_hFM3VuyxBWMlg#Rubiks_Cube_Scanner_app">Download Now</a></h2>
+  </section>
+  <div class="gallery">
+    <div class="thumbnail">
+      <h1 class="stats">Ready, Set, Solve</h1>
+      <h2>Use the pop sulution window from our friends at Rubiks-Cube-Solver.com to view your solving steps! Thanks Móbus Beke for allowing us to use your solver API.</h2>
+	</div>
+    <div class="thumbnail">
+      <h1 class="stats">Want to "Cube" like a pro?</h1>
+      <h2>Check out the links below for more video tutorials from Móbus Beke on how to solve you Rubik's cube on your own!</h2>
+    </div>
+    <div class="thumbnail">
+      <h2>Learn the basics of Rubik's Cube solving!</h2>
+      <p align="center"><iframe width="840" height="473" src="https://www.youtube.com/embed/VeeFwwAz7no" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+    </div>
+    <div class="thumbnail">
+      <h2>Step 1: How to solve the white face of the Rubik's Cube?</h2>
+      <p align="center"><iframe width="840" height="473" src="https://www.youtube.com/embed/WP623alqsv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+    </div>
+	<div class="thumbnail">
+      <h2>Step 2: Solve the middle layer of the Rubik's Cube - F2L</h2>
+      <p align="center"><iframe width="840" height="473" src="https://www.youtube.com/embed/WoemwBS9DZU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+    </div>
+	<div class="thumbnail">
+      <h2>Step 3: Solving the last layer edges of the Rubik's Cube</h2>
+      <p align="center"><iframe width="840" height="473" src="https://www.youtube.com/embed/R79xNtA-xAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+    </div>
+	<div class="thumbnail">
+      <h2>Step 4: Complete your Rubik's Cube solving the yellow corners</h2>
+      <p align="center"><iframe width="840" height="473" src="https://www.youtube.com/embed/kY4eWhvrVo0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+    </div>
+  </div>
+    {%endblock%}
+    </div>
+    <script
+      type="module"
+      src="{{ url_for('static', filename = 'js/three.js' ) }}"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename = 'js/index.js' ) }}"
+    ></script>
+  </body>
+</html>
